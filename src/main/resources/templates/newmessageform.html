@@ -44,7 +44,7 @@
     <div class="container">
         <div class="jumbutron">
             <form method="POST"
-                  action="/add"
+                  action="/addnew"
                   th:object="${message}"
                   enctype="multipart/form-data"
             >
@@ -67,8 +67,8 @@
                 <span th:if="${#fields.hasErrors('date')}"
                       th:errors="*{date}"></span> <br/>
 
+                <input type="file" name="file"/> <br/> <br/>
 
-                <!--<input type="file" name="file"/> <br/> <br/>-->
                 <input type="submit" value="Submit"/>
 
             </form>

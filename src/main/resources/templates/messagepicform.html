@@ -44,31 +44,34 @@
     <div class="container">
         <div class="jumbutron">
             <form method="POST"
-                  action="/add"
+                  action="/addpic"
                   th:object="${message}"
                   enctype="multipart/form-data"
             >
 
                 <input type="hidden" th:field="*{id}"/>
+                Title : <p th:inline="text"> [[*{title}]]</p>
+                Cotent : <p th:inline="text"> [[*{content}]]</p>
+                Sent By : <p th:inline="text"> [[*{sentby}]]</p>
+                Posted Date : <p th:inline="text"> [[*{date}]]</p>
 
-                Title :<input type="text" th:field="*{title}"/>
-                <span th:if="${#fields.hasErrors('title')}"
-                      th:errors="*{title}"></span> <br/>
+                <!--<input type="text" th:field="*{title}"/>-->
+                <!--<span th:if="${#fields.hasErrors('title')}"-->
+                      <!--th:errors="*{title}"></span> <br/>-->
 
-                Content :<textarea rows="3" id="myTextArea" th:field="*{content}"/>
-                <span th:if="${#fields.hasErrors('content')}"
-                      th:errors="*{content}"></span> <br/>
+                <!--Content :<textarea rows="3" id="myTextArea" th:field="*{content}"/>-->
+                <!--<span th:if="${#fields.hasErrors('content')}"-->
+                      <!--th:errors="*{content}"></span> <br/>-->
 
-                Sent By :<input type="text" th:field="*{sentby}"/>
-                <span th:if="${#fields.hasErrors('sentby')}"
-                      th:errors="*{sentby}"></span> <br/>
+                <!--Sent By :<input type="text" th:field="*{sentby}"/>-->
+                <!--<span th:if="${#fields.hasErrors('sentby')}"-->
+                      <!--th:errors="*{sentby}"></span> <br/>-->
 
-                Posted Date :<input type="date" th:field="*{date}"/>
-                <span th:if="${#fields.hasErrors('date')}"
-                      th:errors="*{date}"></span> <br/>
+                <!--Posted Date :<input type="date" th:field="*{date}"/>-->
+                <!--<span th:if="${#fields.hasErrors('date')}"-->
+                      <!--th:errors="*{date}"></span> <br/>-->
 
-
-                <!--<input type="file" name="file"/> <br/> <br/>-->
+                <input type="file" name="file"/> <br/> <br/>
                 <input type="submit" value="Submit"/>
 
             </form>

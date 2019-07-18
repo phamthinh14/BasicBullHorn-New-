@@ -92,7 +92,8 @@
             <h4 id="list-item-1">Content</h4>
             <span th:text="${message.content}"></span>
             <p>Posted Date: <span th:text="${message.date}"></span></p>
-
+            <img class="card-img-top" th:src="${message.headshot}"
+                 style="width: 1108px; height: 600px; background-color: rgba(0,0,255,0.1);">
             <a class="btn btn-outline-primary" th:href="@{/delete/{id}(id=${message.id})}">Delete this message</a>
 
         </div>
