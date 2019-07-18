@@ -89,11 +89,17 @@
                     th:text=" ${message.sentby}"></span></h3>
         </div>
         <div data-spy="scroll" data-target="#list-example" data-offset="0">
-            <h4 id="list-item-1">Content</h4>
+            <h4 id="list-item-1">Title</h4>
+            <span th:text="${message.title}"></span>
+            <h4 id="list-item-2">Content</h4>
             <span th:text="${message.content}"></span>
             <p>Posted Date: <span th:text="${message.date}"></span></p>
+
+            <br>
             <img class="card-img-top" th:src="${message.headshot}"
                  style="width: 1108px; height: 600px; background-color: rgba(0,0,255,0.1);">
+            <hr>
+            <br>
             <a class="btn btn-outline-primary" th:href="@{/delete/{id}(id=${message.id})}">Delete this message</a>
 
         </div>

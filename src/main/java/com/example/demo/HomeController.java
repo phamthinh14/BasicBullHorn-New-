@@ -36,20 +36,23 @@ public class HomeController {
     @PostMapping("/addnew")
     public String processNewForm(@ModelAttribute @Valid Message message, @RequestParam("file") MultipartFile file, BindingResult result) {
         if (file.isEmpty()) {
-            return "redirect:/addnew";
-        }
-        if (result.hasErrors()) {
             return "newmessageform";
         }
+
         try {
             Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
             message.setHeadshot(uploadResult.get("url").toString());
             messageRepository.save(message);
         } catch (IOException e) {
             e.printStackTrace();
-            return "redirect:/addNew";
+            return "newmessageform";
         }
         return "redirect:/";
+    }
+
+    @RequestMapping("/addnew")
+    public String index1() {
+        return "list";
     }
 
     @RequestMapping("/add")
@@ -66,6 +69,7 @@ public class HomeController {
 
 
     @PostMapping("/add")
+//    cHANGE THE MESSAGES
     public String processForm(@ModelAttribute @Valid Message message, BindingResult result) {
 
         String myUrl;
@@ -80,6 +84,7 @@ public class HomeController {
     }
 
     @PostMapping("/addpic")
+    //CHANGE THE PICTURES
     public String processPicForm(@ModelAttribute Message message, @RequestParam("file") MultipartFile file, BindingResult result) {
         String title = messageRepository.findById(message.getId()).get().getTitle();
         String author = messageRepository.findById(message.getId()).get().getSentby();

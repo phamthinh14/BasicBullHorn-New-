@@ -11,19 +11,19 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @NotNull
-    @Size(min = 3, message = "Content should be longer")
+//    @NotNull
+//    @Size(min = 3, message = "Content should be longer")
     private String content;
 
-    @NotNull
+//    @NotNull
     private String date;
 
-    @NotNull
-    @NotBlank
+//    @NotNull
+//    @NotBlank
     private String sentby;
 
-    @NotNull
-    @Size(min = 3, message = "Title should be longer")
+//    @NotNull
+//    @Size(min = 3, message = "Title should be longer")
     private String title;
 
     private String headshot;
